@@ -4,6 +4,7 @@
   "output": "./output",
   "helpers": {
     "WebDriverIO": {
+      "smartWait": 5000,
       "url": "http://codeceptjs.dev",
       "browser": "chrome"
     }

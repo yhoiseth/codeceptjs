@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
     <script src="https://unpkg.com/vue"></script>
 </head>
@@ -8,11 +8,24 @@
     {{ message }}
 </div>
 
+<div id="app-2">
+    <span v-bind:title="message">
+        Hover your mouse over me for a few seconds to see my dynamically bound title!
+    </span>
+</div>
+
 <script>
     var app = new Vue({
         el: '#app',
         data: {
             message: 'Hello, World!'
+        }
+    });
+
+    var app2 = new Vue({
+        el: '#app-2',
+        data: {
+            message: 'You loaded this page on ' + new Date().toLocaleString()
         }
     });
 </script>
