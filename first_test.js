@@ -1,5 +1,5 @@
 
-Feature('First');
+Feature('Homepage');
 
 Scenario('test something', (I) => {
     I.amOnPage('/');
@@ -27,4 +27,11 @@ Scenario('type in input', (I) => {
     I.seeInField('#app-6 input', 'Type here!');
     I.fillField('#app-6 input', 'Changed the text!');
     I.seeTextEquals('Changed the text!', '#app-6 p');
+});
+
+Scenario('Shopping list', (I) => {
+    I.amOnPage('/');
+    I.see('Vegetables');
+    I.see('Cheese');
+    I.see('Whatever else humans are supposed to eat');
 });
