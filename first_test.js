@@ -9,5 +9,13 @@ Scenario('test something', (I) => {
     I.see('Now you see me');
     I.see('Learn JavaScript');
     I.see('Learn Vue');
-    I.see('Build Something awesome');
+    I.see('Build something awesome');
+});
+
+Scenario('test a second scenario', (I) => {
+    I.amOnPage('/');
+    I.click('Reverse Message');
+    I.see('egasseM esreveR');
+    I.click('egasseM esreveR');
+    I.see('Reverse Message');
 });
