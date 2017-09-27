@@ -14,8 +14,9 @@ Scenario('test something', (I) => {
 
 Scenario('test a second scenario', (I) => {
     I.amOnPage('/');
+    I.see('Hello Vue!');
     I.click('Reverse Message');
-    I.see('egasseM esreveR');
-    I.click('egasseM esreveR');
-    I.see('Reverse Message');
+    I.see('!euV olleH');
+    I.click('Reverse Message');
+    I.see('Hello Vue!');
 });
