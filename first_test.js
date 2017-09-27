@@ -20,3 +20,11 @@ Scenario('test a second scenario', (I) => {
     I.click('Reverse Message');
     I.see('Hello Vue!');
 });
+
+Scenario('type in input', (I) => {
+    I.amOnPage('/');
+    I.seeTextEquals('Type here!', '#app-6 p');
+    I.seeInField('#app-6 input', 'Type here!');
+    I.fillField('#app-6 input', 'Changed the text!');
+    I.seeTextEquals('Changed the text!', '#app-6 p');
+});
