@@ -7,4 +7,7 @@ Scenario('test something', (I) => {
     I.moveCursorTo('#app-2');
     I.seeNumberOfElements('[title^="You loaded this page on "]', 1);
     I.see('Now you see me');
+    I.see('Learn JavaScript');
+    I.see('Learn Vue');
+    I.see('Build Something awesome');
 });
