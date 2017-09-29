@@ -40,3 +40,17 @@ Scenario('computed example', (I) => {
   I.see('Hello');
   I.see('olleH');
 });
+
+Scenario('ask a question', (I) => {
+  I.amOnPage('/');
+  I.see('Ask a yes/no question.');
+  I.see('I cannot give you an answer until you ask a question.');
+  I.fillField('question', 'Am I right or wrong?');
+  I.see('Waiting for you to stop typing…');
+  I.fillField('question', '');
+  I.see('Questions usually contain a question mark ;)');
+  I.fillField('Am I right?');
+  I.see('Thinking…');
+  I.wait(2);
+  I.dontSee('Thinking…')
+});
