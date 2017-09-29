@@ -1,5 +1,5 @@
 {
-  "name": "codeceptjs",
+  "name": "try-codeceptjs",
   "version": "1.0.0",
   "description": "Testing CodeceptJs",
   "main": "index.js",
@@ -10,5 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "codeceptjs-webdriverio": "^1.1.0"
+  },
+  "dependencies": {
+    "codeceptjs": "^1.0.3"
   }
 }
