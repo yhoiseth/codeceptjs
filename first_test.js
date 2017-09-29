@@ -47,10 +47,10 @@ Scenario('ask a question', (I) => {
   I.see('I cannot give you an answer until you ask a question.');
   I.fillField('question', 'Am I right or wrong?');
   I.see('Waiting for you to stop typing…');
-  I.fillField('question', '');
+  I.fillField('question', '…');
+  I.wait(1);
   I.see('Questions usually contain a question mark ;)');
-  I.fillField('Am I right?');
-  I.see('Thinking…');
+  I.fillField('question', 'Am I right?');
   I.wait(2);
-  I.dontSee('Thinking…')
+  I.dontSee('Thinking…');
 });
