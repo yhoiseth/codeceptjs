@@ -54,3 +54,8 @@ Scenario('ask a question', (I) => {
   I.wait(2);
   I.dontSee('Thinking…');
 });
+
+Scenario('component', (I) => {
+  I.amOnPage('/');
+  I.see('A custom component!');
+});
