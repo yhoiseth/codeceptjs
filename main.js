@@ -1,22 +1,26 @@
 Vue.component('modal', {
   template: `
     <div class="modal" v-bind:class="{ 'is-active': isActive }">
-        <div class="modal-background"></div>
+        <div class="modal-background" @click="deactivate"></div>
         <div class="modal-content">
             <div class="box">
                 <p>
                     Some text right here.
                 </p>
             </div>
-  
         </div>
-        <button class="modal-close is-large" aria-label="close" @click="isActive = false"></button>
+        <button class="modal-close is-large" aria-label="close" @click="deactivate"></button>
     </div>  
   `,
   data() {
     return {
       isActive: true,
     };
+  },
+  methods: {
+    deactivate() {
+      this.isActive = false;
+    },
   },
 });
 
