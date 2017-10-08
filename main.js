@@ -1,58 +1,65 @@
-Vue.component('modal', {
+Vue.component('tabs', {
   template: `
-    <div class="modal" v-bind:class="{ 'is-active': isActive }">
-        <div class="modal-background" @click="deactivate"></div>
-        <div class="modal-content">
-            <div class="box">
-                <p>
-                    Some text right here.
-                </p>
-            </div>
+    <div>
+        <div class="tabs">
+            <ul>
+                <li v-for="tab in tabs" :class="{ 'is-active': tab.isActive }">
+                  <a v-text="tab.name" @click="select(tab)" :href="tab.href">
+                    
+                  </a>
+                </li>
+            </ul>
+        </div>  
+        
+        <div class="tabs-details">
+            <slot></slot>    
         </div>
-        <button class="modal-close is-large" aria-label="close" @click="deactivate"></button>
-    </div>  
-  `,
-  data() {
-    return {
-      isActive: true,
-    };
-  },
-  methods: {
-    deactivate() {
-      this.isActive = false;
-    },
-  },
-});
-
-Vue.component('message', {
-  props: [
-    'title',
-    'body',
-  ],
-  data() {
-    return {
-      show: true,
-    };
-  },
-  template: `
-    <article class="message" v-show="this.show">
-        <div class="message-header">
-            <p>{{ title }}</p> <button aria-label="delete" @click="show = false" class="delete"></button>
-          </div> 
-          <div class="message-body">
-              {{ body }}
-        </div>
-    </article>  
+    </div>
   `,
   methods: {
-    // hideModal() {
-    //   this.show = false;
-    // }
+    select(selectedTab) {
+      this.tabs.forEach(tab => {
+        tab.isActive = (tab.name === selectedTab.name);
+      })
+    }
+  },
+  data() {
+    return {
+      tabs: [],
+    };
+  },
+  created() {
+    this.tabs = this.$children;
   }
 });
 
-Vue.component('task', {
-  template: '<li><slot></slot></li>'
+Vue.component('tab', {
+  template: `
+        <div v-show="isActive">
+            <slot></slot>        
+        </div>
+  `,
+  props: {
+    name: {
+      required: true,
+    },
+    selected: {
+      default: false,
+    }
+  },
+  computed: {
+    href() {
+      return '#' + this.name.toLowerCase().replace(/ /g, '-');
+    },
+  },
+  data() {
+    return {
+      isActive: false,
+    };
+  },
+  mounted() {
+    this.isActive = this.selected;
+  }
 });
 
 new Vue({

@@ -10,14 +10,23 @@
 <body>
 <section class="section" id="root">
     <div class="container">
-        <h1 class="title">
-            Hello World
-        </h1>
-        <p class="subtitle">
-            My first website with <strong>Bulma</strong>!
-        </p>
-        <message title="Hello World" body="Lorem ipsum dolar sit amet"></message>
-        <modal></modal>
+        <tabs>
+            <tab name="About us" :selected="true" href="about-us">
+                <h1>
+                    About us
+                </h1>
+            </tab>
+            <tab name="Culture" href="culture">
+                <h1>
+                    Culture
+                </h1>
+            </tab>
+            <tab name="Jobs" href="jobs">
+                <h1>
+                    Jobs
+                </h1>
+            </tab>
+        </tabs>
     </div>
 </section>
 
