@@ -2,34 +2,15 @@
 <html xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
-    <style>
-        .is-loading {
-            color: red;
-        }
-    </style>
 </head>
 <body>
 <div id="root">
-    <button :disabled="disabled" @click="disable">Click me</button>
-
+    <task-list></task-list>
 </div>
 
 <script src="https://unpkg.com/vue@2.4.4/dist/vue.js"></script>
 
-<script>
-  new Vue({
-    el: '#root',
-    data: {
-      disabled: false,
-    },
-    methods: {
-      disable() {
-        this.disabled = true;
-      }
-    },
-  })
-
-</script>
+<script src="main.js"></script>
 
 </body>
 </html>
