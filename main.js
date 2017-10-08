@@ -1,23 +1,28 @@
-Vue.component('task-list', {
-  template: '<ul><task v-for="task in tasks">{{ task.description }}</task></ul>',
+Vue.component('message', {
+  props: [
+    'title',
+    'body',
+  ],
   data() {
     return {
-      tasks: [
-        {
-          description: 'Go out',
-          complete: true,
-        },
-        {
-          description: 'Go in',
-          complete: false,
-        },
-        {
-          description: 'Let me begin',
-          complete: true,
-        },
-      ],
+      show: true,
     };
   },
+  template: `
+    <article class="message" v-if="this.show">
+        <div class="message-header">
+            <p>{{ title }}</p> <button aria-label="delete" @click="hideModal" class="delete"></button>
+          </div> 
+          <div class="message-body">
+              {{ body }}
+        </div>
+    </article>  
+  `,
+  methods: {
+    hideModal() {
+      this.show = false;
+    }
+  }
 });
 
 Vue.component('task', {
