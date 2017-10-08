@@ -9,9 +9,9 @@ Vue.component('message', {
     };
   },
   template: `
-    <article class="message" v-if="this.show">
+    <article class="message" v-show="this.show">
         <div class="message-header">
-            <p>{{ title }}</p> <button aria-label="delete" @click="hideModal" class="delete"></button>
+            <p>{{ title }}</p> <button aria-label="delete" @click="show = false" class="delete"></button>
           </div> 
           <div class="message-body">
               {{ body }}
@@ -19,9 +19,9 @@ Vue.component('message', {
     </article>  
   `,
   methods: {
-    hideModal() {
-      this.show = false;
-    }
+    // hideModal() {
+    //   this.show = false;
+    // }
   }
 });
 
